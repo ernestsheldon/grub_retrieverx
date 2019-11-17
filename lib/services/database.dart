@@ -19,10 +19,10 @@ class DatabaseService {
   }
 
   // brew list from snapshot
-  List<order> _userOrderListFromSnapshot(QuerySnapshot snapshot) {
+  List<Order> _userOrderListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
       //print(doc.data);
-      return order(
+      return Order(
           userName: doc.data['name'] ?? '',
           strength: doc.data['strength'] ?? 0,
           foodPlaceName: doc.data['sugars'] ?? '0');
@@ -39,7 +39,7 @@ class DatabaseService {
   }
 
   // get brews stream
-  Stream<List<order>> get brews {
+  Stream<List<Order>> get brews {
     return brewCollection.snapshots().map(_userOrderListFromSnapshot);
   }
 

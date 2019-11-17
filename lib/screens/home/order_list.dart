@@ -11,7 +11,7 @@ class OrderList extends StatefulWidget {
 class _OrderListState extends State<OrderList> {
   @override
   Widget build(BuildContext context) {
-    final brews = Provider.of<List<order>>(context) ?? [];
+    final brews = Provider.of<List<Order>>(context) ?? [];
 
     return ListView.builder(
       itemCount: brews.length,

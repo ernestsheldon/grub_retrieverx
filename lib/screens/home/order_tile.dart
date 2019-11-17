@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grub_retriever/models/order.dart';
 
 class OrderTile extends StatelessWidget {
-  final order brew;
+  final Order brew;
 
   OrderTile({this.brew});
 
