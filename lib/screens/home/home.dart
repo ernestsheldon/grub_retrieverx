@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:grub_retriever/models/brew.dart';
-import 'package:grub_retriever/screens/home/brew_list.dart';
+import 'package:grub_retriever/models/order.dart';
+import 'package:grub_retriever/screens/home/order_list.dart';
 import 'package:grub_retriever/screens/home/settings_form.dart';
 import 'package:grub_retriever/services/auth.dart';
 import 'package:grub_retriever/services/database.dart';
@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
           });
     }
 
-    return StreamProvider<List<Brew>>.value(
+    return StreamProvider<List<order>>.value(
       value: DatabaseService().brews,
       child: Scaffold(
         backgroundColor: Colors.brown[50],
@@ -45,7 +45,7 @@ class Home extends StatelessWidget {
             )
           ],
         ),
-        body: BrewList(),
+        body: OrderList(),
       ),
     );
   }

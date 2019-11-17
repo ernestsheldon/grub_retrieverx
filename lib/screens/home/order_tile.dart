@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:grub_retriever/models/brew.dart';
+import 'package:grub_retriever/models/order.dart';
 
-class BrewTile extends StatelessWidget {
-  final Brew brew;
-  BrewTile({this.brew});
+class OrderTile extends StatelessWidget {
+  final order brew;
+
+  OrderTile({this.brew});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +17,8 @@ class BrewTile extends StatelessWidget {
             radius: 25.0,
             backgroundColor: Colors.brown[brew.strength],
           ),
-          title: Text(brew.name),
-          subtitle: Text('Takes ${brew.sugars} sugar(s)'),
+          title: Text(brew.userName),
+          subtitle: Text('Takes ${brew.foodPlaceName} sugar(s)'),
         ),
       ),
     );

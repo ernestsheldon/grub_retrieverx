@@ -23,13 +23,13 @@ class _SettingsFormState extends State<SettingsForm> {
       child: Column(
         children: <Widget>[
           Text(
-            'Update your brew settings.',
+            'Update your order settings.',
             style: TextStyle(fontSize: 18.0),
           ),
           SizedBox(height: 20.0),
           TextFormField(
             decoration: textInputDecoration,
-            validator: (val) => val.isEmpty ? 'Please enter a name' : null,
+            validator: (val) => val.isEmpty ? 'Please enter a  name' : null,
             onChanged: (val) => setState(() => _currentName = val),
           ),
           SizedBox(height: 10.0),
