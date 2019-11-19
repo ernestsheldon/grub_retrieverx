@@ -1,6 +1,6 @@
 # grub_retriever
 
-A new Flutter application for food retrieving lists
+A new Flutter application for food retrieving lists of friends
 
 ## Getting Started
 
