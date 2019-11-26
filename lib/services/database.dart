@@ -7,25 +7,29 @@ class DatabaseService {
   DatabaseService({this.uid});
 
   // collection reference
-  final CollectionReference brewCollection =
-      Firestore.instance.collection('brews');
+  final CollectionReference orderCollection =
+      Firestore.instance.collection('orders');
 
-  Future<void> updateUserData(String sugars, String name, int strength) async {
-    return await brewCollection.document(uid).setData({
-      'sugars': sugars,
+  Future<void> updateUserData(String valueMealNumber, String name,
+      String placeName, String ownerId, String items) async {
+    return await orderCollection.document(uid).setData({
+      'valueMealNumber': valueMealNumber,
       'name': name,
-      'strength': strength,
+      'placeName': placeName,
+      'ownerId': ownerId,
+      'items': items
     });
   }
 
-  // brew list from snapshot
-  List<Order> _userOrderListFromSnapshot(QuerySnapshot snapshot) {
+  // order list from snapshot
+  List<Order> _orderListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
       //print(doc.data);
       return Order(
-          userName: doc.data['name'] ?? '',
-          strength: doc.data['strength'] ?? 0,
-          foodPlaceName: doc.data['sugars'] ?? '0');
+          name: doc.data['name'] ?? '',
+          valueMealNumber: doc.data['valueMealNumber'] ?? '0',
+          placeName: doc.data['placeName'] ?? 'fastfood',
+          items: doc.data['items'] ?? 'items');
     }).toList();
   }
 
@@ -33,18 +37,19 @@ class DatabaseService {
   UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
     return UserData(
         uid: uid,
-        userName: snapshot.data['name'],
-        foodPlaceName: snapshot.data['sugars'],
-        strength: snapshot.data['strength']);
+        name: snapshot.data['name'],
+        valueMealNumber: snapshot.data['ValueMealNumber'],
+        placeName: snapshot.data['placeName'],
+        items: snapshot.data['items']);
   }
 
   // get brews stream
-  Stream<List<Order>> get brews {
-    return brewCollection.snapshots().map(_userOrderListFromSnapshot);
+  Stream<List<Order>> get orders {
+    return orderCollection.snapshots().map(_orderListFromSnapshot);
   }
 
   // get user doc stream
   Stream<UserData> get userData {
-    return brewCollection.document(uid).snapshots().map(_userDataFromSnapshot);
+    return orderCollection.document(uid).snapshots().map(_userDataFromSnapshot);
   }
 }

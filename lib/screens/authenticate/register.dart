@@ -30,7 +30,7 @@ class _RegisterState extends State<Register> {
             appBar: AppBar(
               backgroundColor: Colors.brown[400],
               elevation: 0.0,
-              title: Text('Sign up to Grub Retriever'),
+              title: Text('Sign up to Minerva Time'),
               actions: <Widget>[
                 FlatButton.icon(
                   icon: Icon(Icons.person),
@@ -40,6 +40,12 @@ class _RegisterState extends State<Register> {
               ],
             ),
             body: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/kittens.jpeg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
               padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
               child: Form(
                 key: _formKey,

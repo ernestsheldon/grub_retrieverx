@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:grub_retriever/models/order.dart';
 
 class OrderTile extends StatelessWidget {
-  final Order brew;
+  final Order order;
 
-  OrderTile({this.brew});
+  OrderTile({this.order});
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +12,27 @@ class OrderTile extends StatelessWidget {
       padding: const EdgeInsets.only(top: 8.0),
       child: Card(
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
-        child: ListTile(
-          leading: CircleAvatar(
-            radius: 25.0,
-            backgroundColor: Colors.brown[brew.strength],
-          ),
-          title: Text(brew.userName),
-          subtitle: Text('Takes ${brew.foodPlaceName} sugar(s)'),
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: ListTile(
+                leading: CircleAvatar(
+                  radius: 25.0,
+                  backgroundColor: Colors.brown[300],
+                  backgroundImage: AssetImage('assets/coffee_icon.png'),
+                ),
+                title: Text(order.name),
+                subtitle: Text(' ${order.valueMealNumber} value Meal Number'),
+              ),
+            ),
+            Text(
+              'Fast food Place ${order.placeName}',
+              style: TextStyle(
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            )
+          ],
         ),
       ),
     );

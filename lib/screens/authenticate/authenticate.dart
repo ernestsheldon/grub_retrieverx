@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:grub_retriever/screens/authenticate/register.dart';
 import 'package:grub_retriever/screens/authenticate/sign_in.dart';
+
+import 'package:flutter/material.dart';
 
 class Authenticate extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class Authenticate extends StatefulWidget {
 
 class _AuthenticateState extends State<Authenticate> {
   bool showSignIn = true;
+
   void toggleView() {
     //print(showSignIn.toString());
     setState(() => showSignIn = !showSignIn);

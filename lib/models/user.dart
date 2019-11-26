@@ -6,9 +6,12 @@ class User {
 
 class UserData {
   final String uid;
-  final String userName;
-  final String foodPlaceName;
-  final int strength;
+  final String name;
+  final String valueMealNumber;
+  final String items;
 
-  UserData({this.uid, this.foodPlaceName, this.strength, this.userName});
+  final String placeName;
+
+  UserData(
+      {this.uid, this.valueMealNumber, this.name, this.placeName, this.items});
 }

@@ -1,8 +1,16 @@
 class Order {
-  final String userName;
-  final String foodPlaceName;
+  final String name;
+  final String valueMealNumber;
+  final String items;
 
-  final int strength;
+  final String placeName;
+  final String ownerId;
 
-  Order({this.userName, this.foodPlaceName, this.strength});
+  Order({
+    this.name,
+    this.valueMealNumber,
+    this.placeName,
+    this.ownerId,
+    this.items,
+  });
 }

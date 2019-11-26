@@ -23,11 +23,11 @@ class Home extends StatelessWidget {
     }
 
     return StreamProvider<List<Order>>.value(
-      value: DatabaseService().brews,
+      value: DatabaseService().orders,
       child: Scaffold(
         backgroundColor: Colors.brown[50],
         appBar: AppBar(
-          title: Text('Brew Crew'),
+          title: Text('Minerva Time'),
           backgroundColor: Colors.brown[400],
           elevation: 0.0,
           actions: <Widget>[
@@ -45,7 +45,14 @@ class Home extends StatelessWidget {
             )
           ],
         ),
-        body: OrderList(),
+        body: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/catrepeated.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: OrderList()),
       ),
     );
   }
