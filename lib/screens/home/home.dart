@@ -40,7 +40,7 @@ class Home extends StatelessWidget {
             ),
             FlatButton.icon(
               icon: Icon(Icons.settings),
-              label: Text('settings'),
+              label: Text('Order settings'),
               onPressed: () => _showSettingsPanel(),
             )
           ],
@@ -52,7 +52,7 @@ class Home extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: OrderList()),
+            child: Container(child: OrderList())),
       ),
     );
   }

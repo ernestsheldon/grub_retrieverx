@@ -41,7 +41,7 @@ class _SettingsFormState extends State<SettingsForm> {
                   ),
                   SizedBox(height: 20.0),
                   TextFormField(
-                    initialValue: userData.name,
+                    initialValue: userData.name ?? 'Enter your Name',
                     decoration: textInputDecoration,
                     validator: (val) =>
                         val.isEmpty ? 'Please enter a name' : null,
@@ -49,7 +49,7 @@ class _SettingsFormState extends State<SettingsForm> {
                   ),
                   SizedBox(height: 10.0),
                   TextFormField(
-                    initialValue: userData.placeName,
+                    initialValue: userData.placeName ?? 'Enter Place name?',
                     decoration: textInputDecoration,
                     validator: (val) => val.isEmpty
                         ? 'Please enter a  fast food place name'
@@ -62,7 +62,7 @@ class _SettingsFormState extends State<SettingsForm> {
                     decoration: textInputDecoration,
                     items: valueMealNumber.map((number) {
                       return DropdownMenuItem(
-                        value: number,
+                        value: number ?? '0',
                         child: Text('$number Value Meal Number'),
                       );
                     }).toList(),
