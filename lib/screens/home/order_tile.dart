@@ -19,7 +19,6 @@ class OrderTile extends StatelessWidget {
             Container(
               child: GestureDetector(
                 onTap: () {
-                  print('${order.items}');
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -31,7 +30,7 @@ class OrderTile extends StatelessWidget {
                   leading: CircleAvatar(
                     radius: 25.0,
                     backgroundColor: Colors.brown[300],
-                    backgroundImage: AssetImage('assets/tree.png'),
+                    backgroundImage: AssetImage('assets/coffee_icon.png'),
                   ),
                   title: Text(
                     order.name ?? "Name",
@@ -43,23 +42,6 @@ class OrderTile extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
-              ' ${order.placeName}',
-              style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-            SizedBox(
-              height: 8.0,
-            ),
-            Text(
-              'Items:  ${order.items}',
-              style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            )
           ],
         ),
       ),

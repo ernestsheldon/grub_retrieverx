@@ -20,27 +20,21 @@ class OrderDetailPage extends StatelessWidget {
               Container(
                 width: 455,
                 height: 255,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      radius: 65.0,
-                      backgroundColor: Colors.brown[300],
-                      backgroundImage: AssetImage('assets/kittensnowman.jpeg'),
-                    ),
-                    title: Text(
-                      order.name ?? "Name",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.w900),
-                    ),
-                    subtitle:
-                        Text(' ${order.valueMealNumber} value Meal Number'),
-                    trailing: Icon(
-                      FontAwesomeIcons.candyCane,
-                      size: 44.0,
-                    ),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    radius: 65.0,
+                    backgroundColor: Colors.brown[300],
+                    backgroundImage: AssetImage('assets/kittensnowman.jpeg'),
+                  ),
+                  title: Text(
+                    order.name ?? "Name",
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.w900),
+                  ),
+                  subtitle: Text(' ${order.valueMealNumber} value Meal Number'),
+                  trailing: Icon(
+                    FontAwesomeIcons.candyCane,
+                    size: 44.0,
                   ),
                 ),
               ),
@@ -60,7 +54,19 @@ class OrderDetailPage extends StatelessWidget {
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.black),
-              )
+              ),
+              SizedBox(
+                height: 64.0,
+              ),
+              FlatButton(
+                color: Colors.blueAccent,
+                child: Text('Close Window'),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0)),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
             ],
           ),
         ),
